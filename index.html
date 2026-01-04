@@ -92,6 +92,1053 @@
             background-color: #E2E8F0;
             z-index: 0;
         }
+
+        /* ========== LMS DEMO STYLES (Clean Professional) ========== */
+        :root {
+            --lms-primary: #0F2C59;
+            --lms-secondary: #319795;
+            --lms-bg: #f8fafc;
+            --lms-white: #ffffff;
+            --lms-grey: #f1f5f9;
+            --lms-text: #1e293b;
+            --lms-muted: #64748b;
+            --lms-border: #e2e8f0;
+            --lms-success: #10b981;
+            --lms-danger: #ef4444;
+        }
+
+        #lms-demo-view {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--lms-bg);
+            z-index: 9000;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #lms-demo-view.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Clean Header */
+        .lms-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+            height: 60px;
+            background: var(--lms-white);
+            border-bottom: 1px solid var(--lms-border);
+            flex-shrink: 0;
+        }
+
+        .lms-header-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .lms-back-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--lms-grey);
+            border: none;
+            border-radius: 6px;
+            color: var(--lms-text);
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s;
+        }
+
+        .lms-back-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .lms-logo-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--lms-primary);
+        }
+
+        .lms-header-center {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 2rem;
+        }
+
+        .lms-search-box {
+            position: relative;
+        }
+
+        .lms-search-box input {
+            width: 100%;
+            padding: 0.6rem 1rem 0.6rem 2.5rem;
+            border: 1px solid var(--lms-border);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            background: var(--lms-grey);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lms-search-box input:focus {
+            outline: none;
+            border-color: var(--lms-secondary);
+            background: var(--lms-white);
+        }
+
+        .lms-search-box i {
+            position: absolute;
+            left: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--lms-muted);
+            font-size: 0.85rem;
+        }
+
+        .lms-persona-dropdown {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lms-persona-dropdown label {
+            font-size: 0.85rem;
+            color: var(--lms-muted);
+        }
+
+        .lms-persona-dropdown select {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--lms-border);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            background: var(--lms-white);
+            color: var(--lms-text);
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Toast */
+        .lms-toast {
+            position: fixed;
+            top: 80px;
+            right: 24px;
+            background: var(--lms-primary);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            z-index: 9999;
+        }
+
+        .lms-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Main Content Layout */
+        .lms-main-content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Sidebar Navigation */
+        .lms-sidebar {
+            width: 260px;
+            background: var(--lms-white);
+            border-right: 1px solid var(--lms-border);
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        .lms-nav {
+            padding: 1rem 0;
+        }
+
+        .lms-nav-section {
+            padding: 0 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .lms-nav-section h4 {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--lms-muted);
+            margin-bottom: 0.75rem;
+            padding: 0 0.75rem;
+        }
+
+        .lms-nav-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .lms-nav-section li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--lms-text);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .lms-nav-section li:hover {
+            background: var(--lms-grey);
+        }
+
+        .lms-nav-section li.active {
+            background: #e0f2fe;
+            color: var(--lms-primary);
+            font-weight: 600;
+        }
+
+        .lms-nav-section li i {
+            width: 18px;
+            text-align: center;
+            color: var(--lms-muted);
+        }
+
+        .lms-nav-section li.active i {
+            color: var(--lms-primary);
+        }
+
+        /* Content Area */
+        .lms-content-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem 2rem;
+        }
+
+        .lms-page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--lms-border);
+        }
+
+        .lms-page-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--lms-text);
+            margin: 0 0 0.25rem 0;
+        }
+
+        .lms-page-subtitle {
+            font-size: 0.9rem;
+            color: var(--lms-muted);
+            margin: 0;
+        }
+
+        .lms-stats-row {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .lms-stat-item {
+            text-align: center;
+        }
+
+        .lms-stat-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--lms-primary);
+        }
+
+        .lms-stat-label {
+            font-size: 0.75rem;
+            color: var(--lms-muted);
+            text-transform: uppercase;
+        }
+
+        /* Resource Sections */
+        .lms-resource-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .lms-section-heading {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--lms-text);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--lms-secondary);
+        }
+
+        .lms-section-heading i {
+            color: var(--lms-secondary);
+        }
+
+        .lms-section-count {
+            margin-left: auto;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: var(--lms-secondary);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 12px;
+        }
+
+        /* Subsections for curriculum types */
+        .lms-subsection {
+            margin-bottom: 2rem;
+        }
+
+        .lms-subsection-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--lms-primary);
+            margin: 1.25rem 0 0.75rem 0;
+            padding: 0.5rem 0.75rem;
+            background: linear-gradient(90deg, rgba(49, 151, 149, 0.08) 0%, transparent 100%);
+            border-left: 3px solid var(--lms-secondary);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .lms-subsection-title i {
+            color: var(--lms-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Pagination */
+        .lms-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            margin-top: 1.5rem;
+            border-top: 1px solid var(--lms-border);
+        }
+
+        .lms-pagination-info {
+            font-size: 0.85rem;
+            color: var(--lms-muted);
+        }
+
+        .lms-pagination-controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .lms-page-btn {
+            padding: 0.5rem 0.85rem;
+            border: 1px solid var(--lms-border);
+            background: var(--lms-white);
+            color: var(--lms-text);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .lms-page-btn:hover:not(.disabled):not(.active) {
+            border-color: var(--lms-secondary);
+            color: var(--lms-secondary);
+            background: #f0fdfa;
+        }
+
+        .lms-page-btn.active {
+            background: var(--lms-primary);
+            border-color: var(--lms-primary);
+            color: white;
+        }
+
+        .lms-page-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Resource Cards */
+        .lms-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .lms-resource-card {
+            background: var(--lms-white);
+            border: 1px solid var(--lms-border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+
+        .lms-resource-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-color: var(--lms-secondary);
+        }
+
+        .lms-resource-card.highlighted {
+            border-color: var(--lms-secondary);
+            background: linear-gradient(135deg, #f0fdfa 0%, #fff 100%);
+        }
+
+        .lms-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .lms-card-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .lms-card-type.pdf {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+
+        .lms-card-type.video {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .lms-card-type.doc {
+            background: #f0fdf4;
+            color: #16a34a;
+        }
+
+        .lms-card-type.course {
+            background: #faf5ff;
+            color: #7c3aed;
+        }
+
+        .lms-card-badge {
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background: var(--lms-grey);
+            color: var(--lms-muted);
+        }
+
+        .lms-card-badge.teacher {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .lms-card-badge.student {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .lms-card-badge.industry {
+            background: #fce7f3;
+            color: #be185d;
+        }
+
+        .lms-card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--lms-text);
+            margin: 0 0 0.5rem 0;
+            line-height: 1.3;
+        }
+
+        .lms-card-desc {
+            font-size: 0.85rem;
+            color: var(--lms-muted);
+            margin: 0 0 1rem 0;
+            line-height: 1.5;
+        }
+
+        /* Course Stats */
+        .lms-course-stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.6rem 0;
+            border-top: 1px dashed var(--lms-border);
+            border-bottom: 1px dashed var(--lms-border);
+        }
+
+        .lms-stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+            color: var(--lms-muted);
+        }
+
+        .lms-stat-item i {
+            color: var(--lms-secondary);
+            font-size: 0.7rem;
+        }
+
+        /* Enhanced Progress Tracker */
+        .lms-progress-tracker {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 8px;
+            border: 1px solid var(--lms-border);
+        }
+
+        .lms-progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .lms-progress-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--lms-text);
+        }
+
+        .lms-progress-percent {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--lms-muted);
+        }
+
+        .lms-progress-percent.in-progress {
+            color: var(--lms-secondary);
+        }
+
+        .lms-progress-percent.complete {
+            color: #16a34a;
+        }
+
+        .lms-progress-bar-track {
+            height: 8px;
+            background: var(--lms-grey);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .lms-progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--lms-secondary) 0%, #2dd4bf 100%);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .lms-progress-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--lms-muted);
+        }
+
+        .lms-progress-details i {
+            margin-right: 0.2rem;
+        }
+
+        .lms-time-left {
+            color: #b45309;
+        }
+
+        /* Status indicators */
+        .lms-not-started {
+            color: #94a3b8 !important;
+        }
+
+        .lms-in-progress {
+            color: var(--lms-secondary) !important;
+        }
+
+        .lms-in-progress i {
+            animation: spin 2s linear infinite;
+        }
+
+        .lms-completed {
+            color: #16a34a !important;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .lms-card-progress {
+            margin-bottom: 1rem;
+        }
+
+        .lms-card-progress .lms-progress-bar {
+            height: 6px;
+            background: var(--lms-grey);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 0.3rem;
+        }
+
+        .lms-card-progress .lms-progress-fill {
+            height: 100%;
+            background: var(--lms-secondary);
+            border-radius: 3px;
+        }
+
+        .lms-card-progress span {
+            font-size: 0.75rem;
+            color: var(--lms-muted);
+        }
+
+        .lms-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--lms-border);
+        }
+
+        .lms-card-meta {
+            font-size: 0.8rem;
+            color: var(--lms-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .lms-card-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s;
+            background: var(--lms-primary);
+            color: white;
+        }
+
+        .lms-card-btn:hover {
+            background: #1e3a5f;
+        }
+
+        .lms-card-btn.secondary {
+            background: var(--lms-secondary);
+        }
+
+        .lms-card-btn.secondary:hover {
+            background: #2c8a87;
+        }
+
+        .lms-card-btn.primary {
+            background: var(--lms-secondary);
+        }
+
+        /* Simple Video Viewer (for informational videos) */
+        .lms-video-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--lms-bg);
+            z-index: 9500;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lms-viewer-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--lms-white);
+            border-bottom: 1px solid var(--lms-border);
+        }
+
+        .lms-viewer-body {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .lms-viewer-main {
+            flex: 1;
+            background: #1e293b;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lms-viewer-video {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .lms-viewer-sidebar {
+            width: 320px;
+            background: var(--lms-white);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--lms-border);
+        }
+
+        .lms-viewer-info {
+            margin: auto 1rem 1rem;
+            padding: 0.75rem;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            color: #15803d;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .lms-viewer-info i {
+            margin-top: 2px;
+        }
+
+        /* Training Player */
+        .lms-training-player {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--lms-bg);
+            z-index: 9500;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lms-player-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.5rem;
+            background: var(--lms-white);
+            border-bottom: 1px solid var(--lms-border);
+        }
+
+        .lms-player-back {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--lms-grey);
+            border: none;
+            border-radius: 6px;
+            color: var(--lms-text);
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lms-player-back:hover {
+            background: #e2e8f0;
+        }
+
+        .lms-player-title {
+            font-weight: 600;
+            color: var(--lms-text);
+        }
+
+        .lms-player-progress {
+            font-size: 0.85rem;
+            color: var(--lms-muted);
+        }
+
+        .lms-player-body {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .lms-player-video-section {
+            flex: 1;
+            background: #1e293b;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lms-player-video {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .lms-video-placeholder,
+        .lms-video-playing {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .lms-video-placeholder i {
+            font-size: 4rem;
+            color: var(--lms-secondary);
+        }
+
+        .lms-playing-animation {
+            display: flex;
+            gap: 4px;
+            height: 40px;
+            align-items: flex-end;
+        }
+
+        .lms-playing-animation span {
+            width: 6px;
+            background: var(--lms-secondary);
+            border-radius: 3px;
+            animation: playingWave 0.8s ease-in-out infinite;
+        }
+
+        .lms-playing-animation span:nth-child(1) {
+            height: 15px;
+            animation-delay: 0s;
+        }
+
+        .lms-playing-animation span:nth-child(2) {
+            height: 25px;
+            animation-delay: 0.1s;
+        }
+
+        .lms-playing-animation span:nth-child(3) {
+            height: 18px;
+            animation-delay: 0.2s;
+        }
+
+        .lms-playing-animation span:nth-child(4) {
+            height: 30px;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes playingWave {
+
+            0%,
+            100% {
+                transform: scaleY(1);
+            }
+
+            50% {
+                transform: scaleY(0.5);
+            }
+        }
+
+        .lms-video-progress-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lms-video-progress-fill {
+            height: 100%;
+            background: var(--lms-secondary);
+            width: 0%;
+            transition: width 2s linear;
+        }
+
+        .lms-player-sidebar {
+            width: 320px;
+            background: var(--lms-white);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--lms-border);
+        }
+
+        /* Player Sidebar */
+        .lms-sidebar-header {
+            padding: 1.25rem;
+            border-bottom: 1px solid var(--lms-border);
+        }
+
+        .lms-sidebar-header h3 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--lms-text);
+        }
+
+        .lms-sidebar-meta {
+            font-size: 0.8rem;
+            color: var(--lms-muted);
+        }
+
+        .lms-lesson-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .lms-lesson {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--lms-border);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .lms-lesson:hover {
+            background: var(--lms-grey);
+        }
+
+        .lms-lesson.active {
+            background: #f0fdfa;
+            border-left: 3px solid var(--lms-secondary);
+        }
+
+        .lms-lesson i {
+            color: var(--lms-muted);
+            font-size: 1.1rem;
+        }
+
+        .lms-lesson.active i {
+            color: var(--lms-secondary);
+        }
+
+        .lms-lesson-info {
+            flex: 1;
+        }
+
+        .lms-lesson-title {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--lms-text);
+        }
+
+        .lms-lesson-duration {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--lms-muted);
+        }
+
+        .lms-sidebar-actions {
+            padding: 1.25rem;
+            border-top: 1px solid var(--lms-border);
+        }
+
+        .lms-quiz-btn {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--lms-primary);
+            color: white;
+        }
+
+        .lms-quiz-btn:hover {
+            background: #1e3a5f;
+        }
+
+        .lms-cert-download-btn {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--lms-success);
+            color: white;
+            margin-top: 0.75rem;
+            transition: background 0.2s;
+        }
+
+        .lms-cert-download-btn:hover:not(:disabled) {
+            background: #0d9488;
+        }
+
+        .lms-cert-download-btn:disabled {
+            background: var(--lms-grey);
+            color: var(--lms-muted);
+            cursor: not-allowed;
+        }
+
+        .launch-lms-btn {
+            background: linear-gradient(135deg, #2563eb 0%, #0d9488 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 0.9rem 2.2rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            font-family: 'Inter', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .launch-lms-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+            background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%);
+        }
     </style>
 </head>
 
@@ -641,6 +1688,13 @@
             </div>
         </section>
 
+        <!-- LMS DEMO LAUNCH SECTION -->
+        <section class="text-center py-8">
+            <button class="launch-lms-btn" onclick="openLmsDemo()">
+                Launch EDLE Demo <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+        </section>
+
     </main>
 
     <footer class="bg-white border-t mt-12 py-12">
@@ -878,6 +1932,1556 @@
                     const savings = val * appState.costPerTrainee;
                     savingsValDisplay.textContent = savings.toLocaleString();
                 });
+            }
+        });
+    </script>
+
+    <!-- ========== LMS DEMO VIEW (OVERLAY) ========== -->
+    <div id="lms-demo-view">
+        <!-- Clean Professional Header -->
+        <header class="lms-header">
+            <div class="lms-header-left">
+                <button class="lms-back-btn" onclick="closeLmsDemo()">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back</span>
+                </button>
+                <div class="lms-logo-text">EDLE Platform</div>
+            </div>
+            <div class="lms-header-center">
+                <div class="lms-search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="lmsSearch" placeholder="Search resources..." />
+                </div>
+            </div>
+            <div class="lms-header-right">
+                <div class="lms-persona-dropdown">
+                    <label>View as:</label>
+                    <select id="lmsPersonaSelect">
+                        <option value="">All Users</option>
+                        <option value="Student">Student</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Industry">Industry Partner</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Toast Notification -->
+        <div id="lms-toast" class="lms-toast"></div>
+
+        <!-- Main Content Area -->
+        <main class="lms-main-content">
+            <!-- Left Sidebar - Navigation -->
+            <aside class="lms-sidebar">
+                <nav class="lms-nav">
+                    <div class="lms-nav-section">
+                        <h4>Browse</h4>
+                        <ul>
+                            <li class="active" data-tab="all"><i class="fa-solid fa-grid-2"></i> All Resources</li>
+                            <li data-tab="curriculum"><i class="fa-solid fa-book"></i> Curriculum</li>
+                            <li data-tab="materials"><i class="fa-solid fa-file-lines"></i> Learning Materials</li>
+                            <li data-tab="training"><i class="fa-solid fa-chalkboard-user"></i> Training Courses</li>
+                        </ul>
+                    </div>
+                    <div class="lms-nav-section">
+                        <h4>Categories</h4>
+                        <ul class="lms-category-list">
+                            <li data-sector=""><i class="fa-solid fa-layer-group"></i> All Sectors</li>
+                            <li data-sector="Construction"><i class="fa-solid fa-hard-hat"></i> Construction</li>
+                            <li data-sector="Hospitality"><i class="fa-solid fa-utensils"></i> Hospitality</li>
+                            <li data-sector="IT"><i class="fa-solid fa-laptop-code"></i> IT & Digital</li>
+                            <li data-sector="Agriculture"><i class="fa-solid fa-leaf"></i> Agriculture</li>
+                            <li data-sector="Manufacturing"><i class="fa-solid fa-industry"></i> Manufacturing</li>
+                        </ul>
+                    </div>
+                    <div class="lms-nav-section">
+                        <h4>Program Type</h4>
+                        <ul class="lms-type-list">
+                            <li data-type=""><i class="fa-solid fa-list"></i> All Types</li>
+                            <li data-type="APT"><i class="fa-solid fa-user-graduate"></i> APT (Apprenticeship)</li>
+                            <li data-type="OJT"><i class="fa-solid fa-briefcase"></i> OJT (On-the-Job)</li>
+                            <li data-type="SUT"><i class="fa-solid fa-arrow-up-right-dots"></i> SUT (Skill Upgrading)
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Main Resource Area -->
+            <div class="lms-content-area">
+                <!-- Page Title & Stats -->
+                <div class="lms-page-header">
+                    <div>
+                        <h1 class="lms-page-title">Resource Library</h1>
+                        <p class="lms-page-subtitle">Browse curriculum documents, learning materials, and training
+                            courses</p>
+                    </div>
+                    <div class="lms-stats-row">
+                        <div class="lms-stat-item">
+                            <span class="lms-stat-value" id="lmsResourceCount">15</span>
+                            <span class="lms-stat-label">Resources</span>
+                        </div>
+                        <div class="lms-stat-item">
+                            <span class="lms-stat-value">5</span>
+                            <span class="lms-stat-label">Sectors</span>
+                        </div>
+                        <div class="lms-stat-item">
+                            <span class="lms-stat-value">3</span>
+                            <span class="lms-stat-label">Programs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resource Grid -->
+                <div class="lms-resource-grid" id="lmsResourceGrid">
+
+                    <!-- CURRICULUM SECTION -->
+                    <div class="lms-resource-section" data-section="curriculum">
+                        <h3 class="lms-section-heading">
+                            <i class="fa-solid fa-book"></i>
+                            Curriculum Documents
+                            <span class="lms-section-count">28 Curriculums</span>
+                        </h3>
+
+                        <!-- APT Curriculums (8 total) -->
+                        <div class="lms-subsection">
+                            <h4 class="lms-subsection-title"><i class="fa-solid fa-user-graduate"></i> APT -
+                                Apprenticeship Program (8 Curriculums)</h4>
+                            <div class="lms-cards-container">
+                                <div class="lms-resource-card" data-sector="Construction" data-type="APT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">APT Level 2</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Electrician Curriculum</h4>
+                                    <p class="lms-card-desc">Complete apprenticeship curriculum for electrical
+                                        installation and maintenance</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 85 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Manufacturing" data-type="APT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">APT Level 2</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Mechanical Fitter Curriculum</h4>
+                                    <p class="lms-card-desc">Precision machining, assembly, and mechanical systems
+                                        maintenance</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 92 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Construction" data-type="APT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">APT Level 1</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Welding Fundamentals</h4>
+                                    <p class="lms-card-desc">Arc welding, MIG, TIG techniques and safety protocols</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 68 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Construction" data-type="APT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">APT Level 1</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Plumbing Systems</h4>
+                                    <p class="lms-card-desc">Pipe fitting, water systems, and sanitary installation</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 74 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Construction" data-type="APT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">APT Level 2</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Carpentry & Joinery</h4>
+                                    <p class="lms-card-desc">Wood construction, furniture making, and finishing
+                                        techniques</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 78 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Manufacturing" data-type="APT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">APT Level 2</span>
+                                    </div>
+                                    <h4 class="lms-card-title">CNC Machine Operation</h4>
+                                    <p class="lms-card-desc">Computer numerical control programming and operation</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 95 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="IT" data-type="APT" data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">APT Level 2</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Network Technician</h4>
+                                    <p class="lms-card-desc">Network installation, configuration, and maintenance</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 88 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Manufacturing" data-type="APT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">APT Level 1</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Auto Mechanic Basics</h4>
+                                    <p class="lms-card-desc">Vehicle maintenance, repair, and diagnostic fundamentals
+                                    </p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 82 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- OJT Curriculums (10 total) -->
+                        <div class="lms-subsection">
+                            <h4 class="lms-subsection-title"><i class="fa-solid fa-briefcase"></i> OJT - On-the-Job
+                                Training (10 Curriculums)</h4>
+                            <div class="lms-cards-container">
+                                <div class="lms-resource-card" data-sector="Hospitality" data-type="OJT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">OJT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Hotel Front Desk Operations</h4>
+                                    <p class="lms-card-desc">Guest check-in/out, reservations, and customer service</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 45 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Hospitality" data-type="OJT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">OJT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Food & Beverage Service</h4>
+                                    <p class="lms-card-desc">Restaurant service, table setting, and menu knowledge</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 52 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Hospitality" data-type="OJT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">OJT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Housekeeping Standards</h4>
+                                    <p class="lms-card-desc">Room cleaning, linen management, and hygiene protocols</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 38 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Hospitality" data-type="OJT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">OJT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Kitchen Helper Training</h4>
+                                    <p class="lms-card-desc">Food preparation, safety, and kitchen equipment handling
+                                    </p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 41 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Manufacturing" data-type="OJT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">OJT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Assembly Line Operations</h4>
+                                    <p class="lms-card-desc">Production line work, quality control, and efficiency</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 35 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Agriculture" data-type="OJT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">OJT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Farm Equipment Operation</h4>
+                                    <p class="lms-card-desc">Tractor operation, maintenance, and field work</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 48 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Agriculture" data-type="OJT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">OJT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Livestock Management</h4>
+                                    <p class="lms-card-desc">Animal care, feeding, and health monitoring</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 55 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="IT" data-type="OJT" data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">OJT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">IT Help Desk Support</h4>
+                                    <p class="lms-card-desc">Troubleshooting, ticket management, and user support</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 42 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Construction" data-type="OJT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">OJT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Site Supervision Basics</h4>
+                                    <p class="lms-card-desc">Construction site management and team coordination</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 58 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Manufacturing" data-type="OJT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">OJT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Quality Control Inspector</h4>
+                                    <p class="lms-card-desc">Product inspection, testing, and quality standards</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 46 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SUT Curriculums (10 total) -->
+                        <div class="lms-subsection">
+                            <h4 class="lms-subsection-title"><i class="fa-solid fa-arrow-up-right-dots"></i> SUT - Skill
+                                Upgrading Training (10 Curriculums)</h4>
+                            <div class="lms-cards-container">
+                                <div class="lms-resource-card" data-sector="Agriculture" data-type="SUT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">SUT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Modern Agriculture Techniques</h4>
+                                    <p class="lms-card-desc">Sustainable farming, precision agriculture, and crop
+                                        management</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 62 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="IT" data-type="SUT" data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">SUT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Digital Literacy Essentials</h4>
+                                    <p class="lms-card-desc">Computer basics, internet, and office applications</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 38 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Manufacturing" data-type="SUT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">SUT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Advanced Welding Techniques</h4>
+                                    <p class="lms-card-desc">Specialized welding methods and certifications</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 54 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="IT" data-type="SUT" data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">SUT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Cybersecurity Fundamentals</h4>
+                                    <p class="lms-card-desc">Network security, threat prevention, and best practices</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 68 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Hospitality" data-type="SUT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">SUT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Tourism & Travel Management</h4>
+                                    <p class="lms-card-desc">Tour operations, travel planning, and customer care</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 72 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Construction" data-type="SUT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">SUT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Green Building Practices</h4>
+                                    <p class="lms-card-desc">Sustainable construction and energy-efficient design</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 58 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Agriculture" data-type="SUT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">SUT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Organic Farming Methods</h4>
+                                    <p class="lms-card-desc">Chemical-free cultivation and certification processes</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 44 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Manufacturing" data-type="SUT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">SUT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Industrial Safety Management</h4>
+                                    <p class="lms-card-desc">Workplace hazard identification and prevention</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 66 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="IT" data-type="SUT" data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">SUT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">E-Commerce Operations</h4>
+                                    <p class="lms-card-desc">Online business setup and digital marketing basics</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 52 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="lms-resource-card" data-sector="Hospitality" data-type="SUT"
+                                    data-persona="Student">
+                                    <div class="lms-card-top">
+                                        <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                        <span class="lms-card-badge">SUT</span>
+                                    </div>
+                                    <h4 class="lms-card-title">Event Management</h4>
+                                    <p class="lms-card-desc">Planning, coordination, and execution of events</p>
+                                    <div class="lms-card-footer">
+                                        <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 48 pages</span>
+                                        <button class="lms-card-btn"
+                                            onclick="showLmsToast('Downloading PDF...', 'info')">
+                                            <i class="fa-solid fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LEARNING MATERIALS SECTION -->
+                    <div class="lms-resource-section" data-section="materials">
+                        <h3 class="lms-section-heading">
+                            <i class="fa-solid fa-file-lines"></i>
+                            Learning Materials
+                            <span class="lms-section-count">4 Resources</span>
+                        </h3>
+
+                        <div class="lms-cards-container">
+                            <div class="lms-resource-card" data-sector="IT" data-type="SUT" data-persona="Teacher">
+                                <div class="lms-card-top">
+                                    <span class="lms-card-type doc"><i class="fa-solid fa-file-word"></i> DOC</span>
+                                    <span class="lms-card-badge teacher">For Teachers</span>
+                                </div>
+                                <h4 class="lms-card-title">Instructional Manuals</h4>
+                                <p class="lms-card-desc">Step-by-step guides for effective teaching in TVET</p>
+                                <div class="lms-card-footer">
+                                    <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 45 pages</span>
+                                    <button class="lms-card-btn" onclick="showLmsToast('Downloading...', 'info')">
+                                        <i class="fa-solid fa-download"></i> Download
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="lms-resource-card" data-sector="Construction" data-type="APT"
+                                data-persona="Student">
+                                <div class="lms-card-top">
+                                    <span class="lms-card-type video"><i class="fa-solid fa-video"></i> VIDEO</span>
+                                    <span class="lms-card-badge student">For Students</span>
+                                </div>
+                                <h4 class="lms-card-title">Video Demonstrations</h4>
+                                <p class="lms-card-desc">Visual learning for practical skills and hands-on training</p>
+                                <div class="lms-card-footer">
+                                    <span class="lms-card-meta"><i class="fa-solid fa-clock"></i> 2h 30m</span>
+                                    <button class="lms-card-btn secondary" onclick="openVideoViewer()">
+                                        <i class="fa-solid fa-play"></i> Watch
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="lms-resource-card" data-sector="Manufacturing" data-type="SUT"
+                                data-persona="Industry">
+                                <div class="lms-card-top">
+                                    <span class="lms-card-type doc"><i class="fa-solid fa-file-lines"></i> DOC</span>
+                                    <span class="lms-card-badge industry">For Industry</span>
+                                </div>
+                                <h4 class="lms-card-title">Industry Standards Guide</h4>
+                                <p class="lms-card-desc">Best practices and compliance for workplaces and employers</p>
+                                <div class="lms-card-footer">
+                                    <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 78 pages</span>
+                                    <button class="lms-card-btn" onclick="showLmsToast('Downloading...', 'info')">
+                                        <i class="fa-solid fa-download"></i> Download
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="lms-resource-card" data-sector="Hospitality" data-type="OJT"
+                                data-persona="Student">
+                                <div class="lms-card-top">
+                                    <span class="lms-card-type pdf"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+                                    <span class="lms-card-badge student">For Students</span>
+                                </div>
+                                <h4 class="lms-card-title">Customer Service Excellence</h4>
+                                <p class="lms-card-desc">Communication skills and professional service delivery</p>
+                                <div class="lms-card-footer">
+                                    <span class="lms-card-meta"><i class="fa-solid fa-file"></i> 32 pages</span>
+                                    <button class="lms-card-btn" onclick="showLmsToast('Downloading...', 'info')">
+                                        <i class="fa-solid fa-download"></i> Download
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TRAINING COURSES SECTION -->
+                    <div class="lms-resource-section" data-section="training">
+                        <h3 class="lms-section-heading">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                            Training Courses
+                            <span class="lms-section-count">3 Available</span>
+                        </h3>
+
+                        <div class="lms-cards-container">
+                            <div id="course-pedagogy" class="lms-resource-card course-card" data-sector="IT"
+                                data-type="SUT" data-persona="Teacher" data-total-lessons="3" data-total-hours="40">
+                                <div class="lms-card-top">
+                                    <span class="lms-card-type course"><i class="fa-solid fa-graduation-cap"></i>
+                                        COURSE</span>
+                                    <span class="lms-card-badge teacher">For Teachers</span>
+                                </div>
+                                <h4 class="lms-card-title">Digital Pedagogy</h4>
+                                <p class="lms-card-desc">Modern teaching methods with digital tools for TVET instructors
+                                </p>
+                                <div class="lms-course-stats">
+                                    <div class="lms-stat-item">
+                                        <i class="fa-solid fa-clock"></i>
+                                        <span>40 hrs total</span>
+                                    </div>
+                                    <div class="lms-stat-item">
+                                        <i class="fa-solid fa-book-open"></i>
+                                        <span>3 lessons</span>
+                                    </div>
+                                    <div class="lms-stat-item">
+                                        <i class="fa-solid fa-video"></i>
+                                        <span>3 videos</span>
+                                    </div>
+                                </div>
+                                <div class="lms-progress-tracker">
+                                    <div class="lms-progress-header">
+                                        <span class="lms-progress-label">Your Progress</span>
+                                        <span class="lms-progress-percent course-percent">0%</span>
+                                    </div>
+                                    <div class="lms-progress-bar-track">
+                                        <div class="lms-progress-bar-fill course-bar" style="width: 0%;"></div>
+                                    </div>
+                                    <div class="lms-progress-details">
+                                        <span class="course-completed"><i class="fa-solid fa-check-circle"></i> 0/3
+                                            completed</span>
+                                        <span class="lms-time-left course-time"><i class="fa-regular fa-clock"></i> ~40
+                                            hrs left</span>
+                                    </div>
+                                </div>
+                                <div class="lms-card-footer">
+                                    <span class="lms-card-meta course-status lms-not-started"><i
+                                            class="fa-solid fa-circle"></i> Not Started</span>
+                                    <button class="lms-card-btn primary course-btn"
+                                        onclick="openTrainingPlayer('pedagogy')">
+                                        <i class="fa-solid fa-play"></i> Start Course
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="course-safety" class="lms-resource-card course-card highlighted"
+                                data-sector="Manufacturing" data-type="SUT" data-persona="Industry"
+                                data-total-lessons="3" data-total-hours="24">
+                                <div class="lms-card-top">
+                                    <span class="lms-card-type course"><i class="fa-solid fa-graduation-cap"></i>
+                                        COURSE</span>
+                                    <span class="lms-card-badge industry">For Industry</span>
+                                </div>
+                                <h4 class="lms-card-title">Workplace Safety & Compliance</h4>
+                                <p class="lms-card-desc">Comprehensive safety training and regulatory compliance</p>
+                                <div class="lms-course-stats">
+                                    <div class="lms-stat-item">
+                                        <i class="fa-solid fa-clock"></i>
+                                        <span>24 hrs total</span>
+                                    </div>
+                                    <div class="lms-stat-item">
+                                        <i class="fa-solid fa-book-open"></i>
+                                        <span>3 lessons</span>
+                                    </div>
+                                    <div class="lms-stat-item">
+                                        <i class="fa-solid fa-video"></i>
+                                        <span>3 videos</span>
+                                    </div>
+                                </div>
+                                <div class="lms-progress-tracker">
+                                    <div class="lms-progress-header">
+                                        <span class="lms-progress-label">Your Progress</span>
+                                        <span class="lms-progress-percent course-percent">0%</span>
+                                    </div>
+                                    <div class="lms-progress-bar-track">
+                                        <div class="lms-progress-bar-fill course-bar" style="width: 0%;"></div>
+                                    </div>
+                                    <div class="lms-progress-details">
+                                        <span class="course-completed"><i class="fa-solid fa-check-circle"></i> 0/3
+                                            completed</span>
+                                        <span class="lms-time-left course-time"><i class="fa-regular fa-clock"></i> ~24
+                                            hrs left</span>
+                                    </div>
+                                </div>
+                                <div class="lms-card-footer">
+                                    <span class="lms-card-meta course-status lms-not-started"><i
+                                            class="fa-solid fa-circle"></i> Not Started</span>
+                                    <button class="lms-card-btn primary course-btn"
+                                        onclick="openTrainingPlayer('safety')">
+                                        <i class="fa-solid fa-play"></i> Start Course
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="course-construction" class="lms-resource-card course-card"
+                                data-sector="Construction" data-type="APT" data-persona="Student" data-total-lessons="3"
+                                data-total-hours="16">
+                                <div class="lms-card-top">
+                                    <span class="lms-card-type course"><i class="fa-solid fa-graduation-cap"></i>
+                                        COURSE</span>
+                                    <span class="lms-card-badge student">For Students</span>
+                                </div>
+                                <h4 class="lms-card-title">Construction Site Safety</h4>
+                                <p class="lms-card-desc">Essential safety practices for construction workers</p>
+                                <div class="lms-course-stats">
+                                    <div class="lms-stat-item">
+                                        <i class="fa-solid fa-clock"></i>
+                                        <span>16 hrs total</span>
+                                    </div>
+                                    <div class="lms-stat-item">
+                                        <i class="fa-solid fa-book-open"></i>
+                                        <span>3 lessons</span>
+                                    </div>
+                                    <div class="lms-stat-item">
+                                        <i class="fa-solid fa-video"></i>
+                                        <span>3 videos</span>
+                                    </div>
+                                </div>
+                                <div class="lms-progress-tracker">
+                                    <div class="lms-progress-header">
+                                        <span class="lms-progress-label">Your Progress</span>
+                                        <span class="lms-progress-percent course-percent">0%</span>
+                                    </div>
+                                    <div class="lms-progress-bar-track">
+                                        <div class="lms-progress-bar-fill course-bar" style="width: 0%;"></div>
+                                    </div>
+                                    <div class="lms-progress-details">
+                                        <span class="course-completed"><i class="fa-solid fa-check-circle"></i> 0/3
+                                            completed</span>
+                                        <span class="lms-time-left course-time"><i class="fa-regular fa-clock"></i> ~16
+                                            hrs left</span>
+                                    </div>
+                                </div>
+                                <div class="lms-card-footer">
+                                    <span class="lms-card-meta course-status lms-not-started"><i
+                                            class="fa-solid fa-circle"></i> Not Started</span>
+                                    <button class="lms-card-btn primary course-btn"
+                                        onclick="openTrainingPlayer('construction')">
+                                        <i class="fa-solid fa-play"></i> Start Course
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <!-- Simple Video Viewer Modal (for informational videos - no assessment) -->
+        <div id="lmsVideoViewer" class="lms-video-viewer" style="display:none;">
+            <div class="lms-viewer-header">
+                <button class="lms-player-back" onclick="closeVideoViewer()">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Resources
+                </button>
+                <div class="lms-player-title">Video Demonstrations: Practical Skills</div>
+            </div>
+            <div class="lms-viewer-body">
+                <div class="lms-viewer-main">
+                    <div class="lms-viewer-video" onclick="toggleDemoVideo()">
+                        <div class="lms-video-placeholder" id="lmsDemoPlaceholder">
+                            <i class="fa-solid fa-play-circle"></i>
+                            <span>Click to Play</span>
+                        </div>
+                        <div class="lms-video-playing" id="lmsDemoPlaying" style="display:none;">
+                            <div class="lms-playing-animation">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                            <span>Playing...</span>
+                        </div>
+                    </div>
+                    <div class="lms-video-progress-bar">
+                        <div class="lms-video-progress-fill" id="lmsDemoProgress"></div>
+                    </div>
+                </div>
+                <div class="lms-viewer-sidebar">
+                    <div class="lms-sidebar-header">
+                        <h3>Video Series</h3>
+                        <span class="lms-sidebar-meta">6 Videos • 2h 30m total</span>
+                    </div>
+                    <ul class="lms-lesson-list">
+                        <li class="lms-lesson active" onclick="selectDemoVideo(1)">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <div>
+                                <span class="lms-lesson-title">Introduction to Safety Gear</span>
+                                <span class="lms-lesson-duration">18 min</span>
+                            </div>
+                        </li>
+                        <li class="lms-lesson" onclick="selectDemoVideo(2)">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <div>
+                                <span class="lms-lesson-title">Tool Handling Techniques</span>
+                                <span class="lms-lesson-duration">25 min</span>
+                            </div>
+                        </li>
+                        <li class="lms-lesson" onclick="selectDemoVideo(3)">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <div>
+                                <span class="lms-lesson-title">Wiring Fundamentals</span>
+                                <span class="lms-lesson-duration">32 min</span>
+                            </div>
+                        </li>
+                        <li class="lms-lesson" onclick="selectDemoVideo(4)">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <div>
+                                <span class="lms-lesson-title">Circuit Installation Demo</span>
+                                <span class="lms-lesson-duration">28 min</span>
+                            </div>
+                        </li>
+                        <li class="lms-lesson" onclick="selectDemoVideo(5)">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <div>
+                                <span class="lms-lesson-title">Testing & Troubleshooting</span>
+                                <span class="lms-lesson-duration">22 min</span>
+                            </div>
+                        </li>
+                        <li class="lms-lesson" onclick="selectDemoVideo(6)">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <div>
+                                <span class="lms-lesson-title">Best Practices Summary</span>
+                                <span class="lms-lesson-duration">15 min</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="lms-viewer-info">
+                        <i class="fa-solid fa-info-circle"></i>
+                        <span>These videos are for information and demonstration purposes only.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Training Player Modal -->
+        <div id="lmsTrainingPlayer" class="lms-training-player" style="display:none;">
+            <div class="lms-player-header">
+                <button class="lms-player-back" onclick="closeTrainingPlayer()">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Resources
+                </button>
+                <div class="lms-player-title">Digital Pedagogy: Teaching for the Future</div>
+                <div class="lms-player-progress">
+                    <span>Lesson 1 of 3</span>
+                </div>
+            </div>
+            <div class="lms-player-body">
+                <div class="lms-player-video-section">
+                    <div class="lms-player-video" onclick="toggleVideoPlay()">
+                        <div class="lms-video-placeholder" id="lmsVideoPlaceholder">
+                            <i class="fa-solid fa-play-circle"></i>
+                            <span>Click to Play</span>
+                        </div>
+                        <div class="lms-video-playing" id="lmsVideoPlaying" style="display:none;">
+                            <div class="lms-playing-animation">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                            <span>Playing...</span>
+                        </div>
+                    </div>
+                    <div class="lms-video-progress-bar">
+                        <div class="lms-video-progress-fill" id="lmsVideoProgress"></div>
+                    </div>
+                </div>
+                <div class="lms-player-sidebar">
+                    <div class="lms-sidebar-header">
+                        <h3>Course Content</h3>
+                        <span class="lms-sidebar-meta">3 Lessons • 40 hours</span>
+                    </div>
+                    <ul class="lms-lesson-list">
+                        <li class="lms-lesson active" data-lesson="1">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <div>
+                                <span class="lms-lesson-title">Lesson 1: Digital Mindset</span>
+                                <span class="lms-lesson-duration">15 min</span>
+                            </div>
+                        </li>
+                        <li class="lms-lesson" data-lesson="2">
+                            <i class="fa-solid fa-circle"></i>
+                            <div>
+                                <span class="lms-lesson-title">Lesson 2: Interactive Tools</span>
+                                <span class="lms-lesson-duration">20 min</span>
+                            </div>
+                        </li>
+                        <li class="lms-lesson locked" data-lesson="3">
+                            <i class="fa-solid fa-lock"></i>
+                            <div>
+                                <span class="lms-lesson-title">Lesson 3: Assessment Strategies</span>
+                                <span class="lms-lesson-duration">18 min</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="lms-sidebar-actions">
+                        <button class="lms-quiz-btn" onclick="openLmsQuiz()">
+                            <i class="fa-solid fa-clipboard-question"></i> Take Assessment
+                        </button>
+                        <button class="lms-cert-download-btn" id="lmsCertBtn" disabled>
+                            <i class="fa-solid fa-award"></i> Get Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- LMS Quiz Modal -->
+    <div class="lms-quiz-modal" id="lmsQuizModal" style="display:none;">
+        <div class="lms-quiz-content">
+            <button class="lms-quiz-close" onclick="closeLmsQuiz()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="lms-quiz-header">
+                <h3>Course Assessment</h3>
+                <p>Digital Pedagogy: Teaching for the Future</p>
+            </div>
+            <div class="lms-quiz-body">
+                <div class="lms-quiz-question">
+                    What is the best approach to modern teaching in TVET?
+                </div>
+                <div class="lms-quiz-options">
+                    <button class="lms-quiz-option" onclick="selectQuizOption(this, false)">
+                        <span class="option-marker">A</span>
+                        <span>Only use printed textbooks and traditional methods</span>
+                    </button>
+                    <button class="lms-quiz-option" onclick="selectQuizOption(this, true)">
+                        <span class="option-marker">B</span>
+                        <span>Blend digital tools with hands-on practical training</span>
+                    </button>
+                    <button class="lms-quiz-option" onclick="selectQuizOption(this, false)">
+                        <span class="option-marker">C</span>
+                        <span>Replace all in-person teaching with online videos</span>
+                    </button>
+                    <button class="lms-quiz-option" onclick="selectQuizOption(this, false)">
+                        <span class="option-marker">D</span>
+                        <span>Avoid using any technology in the classroom</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LMS Certificate Modal -->
+    <div class="lms-cert-modal" id="lmsCertModal" style="display:none;">
+        <div class="lms-cert-content">
+            <button class="lms-cert-close" onclick="closeLmsCert()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="lms-cert-header">
+                <span class="lms-cert-logo">EDLE</span>
+                <i class="fa-solid fa-award lms-cert-icon"></i>
+            </div>
+            <h2 class="lms-cert-title">Certificate of Completion</h2>
+            <p class="lms-cert-subtitle">This is to certify that</p>
+            <div class="lms-cert-name">TVET Participant</div>
+            <p class="lms-cert-course">has successfully completed<br><strong>Digital Pedagogy: Teaching for the
+                    Future</strong></p>
+            <div class="lms-cert-details">
+                <div><span>Date:</span> <span id="lmsCertDate"></span></div>
+                <div><span>ID:</span> <span id="lmsCertId">EDLE-2026-001</span></div>
+            </div>
+            <div class="lms-cert-actions">
+                <button class="lms-cert-download"><i class="fa-solid fa-download"></i> Download PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <canvas class="lms-confetti" id="lmsConfettiCanvas" style="display:none;"></canvas>
+
+    <script>
+        // ========== LMS DEMO JS (Clean Professional) ==========
+
+        // Core Functions
+        function openLmsDemo() {
+            document.getElementById('lms-demo-view').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLmsDemo() {
+            document.getElementById('lms-demo-view').classList.remove('active');
+            closeTrainingPlayer();
+            document.body.style.overflow = '';
+        }
+
+        // Toast Notification
+        function showLmsToast(msg, type = 'info') {
+            const toast = document.getElementById('lms-toast');
+            toast.textContent = msg;
+            toast.className = 'lms-toast show ' + type;
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        // Sidebar Navigation
+        document.querySelectorAll('.lms-nav-section li[data-tab]').forEach(item => {
+            item.addEventListener('click', function () {
+                // Remove active from all
+                document.querySelectorAll('.lms-nav-section li[data-tab]').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+
+                const tab = this.dataset.tab;
+                filterByTab(tab);
+            });
+        });
+
+        // Category filter
+        document.querySelectorAll('.lms-category-list li[data-sector]').forEach(item => {
+            item.addEventListener('click', function () {
+                document.querySelectorAll('.lms-category-list li').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                filterResources();
+            });
+        });
+
+        // Type filter
+        document.querySelectorAll('.lms-type-list li[data-type]').forEach(item => {
+            item.addEventListener('click', function () {
+                document.querySelectorAll('.lms-type-list li').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                filterResources();
+            });
+        });
+
+        function filterByTab(tab) {
+            const sections = document.querySelectorAll('.lms-resource-section');
+            sections.forEach(section => {
+                if (tab === 'all' || section.dataset.section === tab) {
+                    section.style.display = '';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+            updateResourceCount();
+        }
+
+        function filterResources() {
+            const searchTerm = document.getElementById('lmsSearch')?.value.toLowerCase() || '';
+            const activeSector = document.querySelector('.lms-category-list li.active')?.dataset.sector || '';
+            const activeType = document.querySelector('.lms-type-list li.active')?.dataset.type || '';
+            const activePersona = document.getElementById('lmsPersonaSelect')?.value || '';
+
+            let visibleCount = 0;
+            document.querySelectorAll('.lms-resource-card').forEach(card => {
+                const title = card.querySelector('.lms-card-title')?.textContent.toLowerCase() || '';
+                const desc = card.querySelector('.lms-card-desc')?.textContent.toLowerCase() || '';
+                const sector = card.dataset.sector || '';
+                const type = card.dataset.type || '';
+                const persona = card.dataset.persona || '';
+
+                const matchesSearch = searchTerm === '' || title.includes(searchTerm) || desc.includes(searchTerm);
+                const matchesSector = activeSector === '' || sector === activeSector;
+                const matchesType = activeType === '' || type === activeType;
+                const matchesPersona = activePersona === '' || persona === activePersona;
+
+                if (matchesSearch && matchesSector && matchesType && matchesPersona) {
+                    card.style.display = '';
+                    // Highlight recommended cards for persona
+                    if (activePersona && persona === activePersona) {
+                        card.classList.add('highlighted');
+                    } else {
+                        card.classList.remove('highlighted');
+                    }
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('lmsResourceCount').textContent = visibleCount;
+        }
+
+        function updateResourceCount() {
+            const visible = document.querySelectorAll('.lms-resource-card:not([style*="display: none"])').length;
+            document.getElementById('lmsResourceCount').textContent = visible;
+        }
+
+        // Search input
+        const lmsSearch = document.getElementById('lmsSearch');
+        if (lmsSearch) {
+            lmsSearch.addEventListener('input', filterResources);
+        }
+
+        // Persona select
+        const lmsPersonaSelect = document.getElementById('lmsPersonaSelect');
+        if (lmsPersonaSelect) {
+            lmsPersonaSelect.addEventListener('change', function () {
+                if (this.value) {
+                    showLmsToast('Viewing as ' + this.value, 'success');
+                }
+                filterResources();
+            });
+        }
+
+        // Simple Video Viewer Functions (for informational videos - no assessment)
+        let demoPlaying = false;
+
+        function openVideoViewer() {
+            document.getElementById('lmsVideoViewer').style.display = 'flex';
+            showLmsToast('Loading video...', 'info');
+        }
+
+        function closeVideoViewer() {
+            document.getElementById('lmsVideoViewer').style.display = 'none';
+            demoPlaying = false;
+            document.getElementById('lmsDemoProgress').style.width = '0%';
+            document.getElementById('lmsDemoPlaceholder').style.display = 'flex';
+            document.getElementById('lmsDemoPlaying').style.display = 'none';
+        }
+
+        function toggleDemoVideo() {
+            const placeholder = document.getElementById('lmsDemoPlaceholder');
+            const playing = document.getElementById('lmsDemoPlaying');
+            const progressFill = document.getElementById('lmsDemoProgress');
+
+            if (!demoPlaying) {
+                demoPlaying = true;
+                placeholder.style.display = 'none';
+                playing.style.display = 'flex';
+                progressFill.style.transition = 'width 5s linear';
+                progressFill.style.width = '100%';
+
+                setTimeout(() => {
+                    demoPlaying = false;
+                    placeholder.style.display = 'flex';
+                    playing.style.display = 'none';
+                    progressFill.style.transition = 'none';
+                    progressFill.style.width = '0%';
+                    showLmsToast('Video completed! Select another video from the list.', 'success');
+                }, 5000);
+            } else {
+                demoPlaying = false;
+                placeholder.style.display = 'flex';
+                playing.style.display = 'none';
+                progressFill.style.transition = 'none';
+            }
+        }
+
+        function selectDemoVideo(videoNum) {
+            // Update active state in list
+            document.querySelectorAll('#lmsVideoViewer .lms-lesson').forEach((item, index) => {
+                item.classList.toggle('active', index === videoNum - 1);
+            });
+
+            // Reset video state
+            demoPlaying = false;
+            document.getElementById('lmsDemoProgress').style.width = '0%';
+            document.getElementById('lmsDemoPlaceholder').style.display = 'flex';
+            document.getElementById('lmsDemoPlaying').style.display = 'none';
+
+            showLmsToast('Video ' + videoNum + ' selected. Click to play.', 'info');
+        }
+
+        // Training Player Functions
+        let videoPlaying = false;
+        let currentLesson = 1;
+        let currentCourseId = null;
+        let completedLessons = 0;
+        const totalLessons = 3;
+
+        // Course titles mapping
+        const courseTitles = {
+            'pedagogy': 'Digital Pedagogy: Teaching for the Future',
+            'safety': 'Workplace Safety & Compliance',
+            'construction': 'Construction Site Safety'
+        };
+
+        function openTrainingPlayer(courseId) {
+            currentCourseId = courseId;
+            document.getElementById('lmsTrainingPlayer').style.display = 'flex';
+
+            // Update player title based on course
+            document.querySelector('.lms-player-title').textContent = courseTitles[courseId] || 'Training Course';
+
+            resetTrainingPlayer();
+            showLmsToast('Loading course...', 'info');
+        }
+
+        function closeTrainingPlayer() {
+            document.getElementById('lmsTrainingPlayer').style.display = 'none';
+            videoPlaying = false;
+        }
+
+        function resetTrainingPlayer() {
+            currentLesson = 1;
+            completedLessons = 0;
+            videoPlaying = false;
+            document.getElementById('lmsVideoProgress').style.width = '0%';
+            document.getElementById('lmsVideoPlaceholder').style.display = 'flex';
+            document.getElementById('lmsVideoPlaying').style.display = 'none';
+            document.getElementById('lmsCertBtn').disabled = true;
+            updateLessonUI();
+            updatePlayerProgress();
+        }
+
+        function toggleVideoPlay() {
+            const placeholder = document.getElementById('lmsVideoPlaceholder');
+            const playing = document.getElementById('lmsVideoPlaying');
+            const progressFill = document.getElementById('lmsVideoProgress');
+
+            if (!videoPlaying) {
+                videoPlaying = true;
+                placeholder.style.display = 'none';
+                playing.style.display = 'flex';
+
+                // Simulate video progress
+                progressFill.style.transition = 'width 3s linear';
+                progressFill.style.width = '100%';
+
+                setTimeout(() => {
+                    // Mark current lesson as completed
+                    completedLessons = currentLesson;
+
+                    // Update the course card progress
+                    updateCourseCardProgress();
+
+                    if (currentLesson < totalLessons) {
+                        currentLesson++;
+                        updateLessonUI();
+                        updatePlayerProgress();
+                        progressFill.style.transition = 'none';
+                        progressFill.style.width = '0%';
+                        videoPlaying = false;
+                        placeholder.style.display = 'flex';
+                        playing.style.display = 'none';
+                        showLmsToast('Lesson ' + currentLesson + ' unlocked!', 'success');
+                    } else {
+                        completedLessons = totalLessons;
+                        updateCourseCardProgress();
+                        videoPlaying = false;
+                        placeholder.style.display = 'flex';
+                        playing.style.display = 'none';
+                        showLmsToast('All lessons complete! Take the assessment.', 'success');
+                    }
+                }, 3000);
+            } else {
+                videoPlaying = false;
+                placeholder.style.display = 'flex';
+                playing.style.display = 'none';
+                progressFill.style.transition = 'none';
+            }
+        }
+
+        function updatePlayerProgress() {
+            const progressText = document.querySelector('.lms-player-progress span');
+            if (progressText) {
+                progressText.textContent = 'Lesson ' + currentLesson + ' of ' + totalLessons;
+            }
+        }
+
+        function updateCourseCardProgress() {
+            if (!currentCourseId) return;
+
+            const card = document.getElementById('course-' + currentCourseId);
+            if (!card) return;
+
+            const totalHours = parseInt(card.dataset.totalHours) || 40;
+            const percent = Math.round((completedLessons / totalLessons) * 100);
+            const hoursLeft = Math.round(totalHours * (1 - completedLessons / totalLessons));
+
+            // Update percentage
+            const percentEl = card.querySelector('.course-percent');
+            if (percentEl) {
+                percentEl.textContent = percent + '%';
+                percentEl.classList.remove('in-progress');
+                if (percent > 0 && percent < 100) {
+                    percentEl.classList.add('in-progress');
+                } else if (percent === 100) {
+                    percentEl.classList.add('complete');
+                }
+            }
+
+            // Update progress bar
+            const barEl = card.querySelector('.course-bar');
+            if (barEl) {
+                barEl.style.width = percent + '%';
+            }
+
+            // Update completed count
+            const completedEl = card.querySelector('.course-completed');
+            if (completedEl) {
+                completedEl.innerHTML = '<i class="fa-solid fa-check-circle"></i> ' + completedLessons + '/' + totalLessons + ' completed';
+            }
+
+            // Update time left
+            const timeEl = card.querySelector('.course-time');
+            if (timeEl) {
+                timeEl.innerHTML = '<i class="fa-regular fa-clock"></i> ~' + hoursLeft + ' hrs left';
+            }
+
+            // Update status
+            const statusEl = card.querySelector('.course-status');
+            const btnEl = card.querySelector('.course-btn');
+
+            if (statusEl && btnEl) {
+                if (percent === 0) {
+                    statusEl.className = 'lms-card-meta course-status lms-not-started';
+                    statusEl.innerHTML = '<i class="fa-solid fa-circle"></i> Not Started';
+                    btnEl.innerHTML = '<i class="fa-solid fa-play"></i> Start Course';
+                    btnEl.classList.remove('secondary');
+                    btnEl.classList.add('primary');
+                } else if (percent < 100) {
+                    statusEl.className = 'lms-card-meta course-status lms-in-progress';
+                    statusEl.innerHTML = '<i class="fa-solid fa-spinner"></i> In Progress';
+                    btnEl.innerHTML = '<i class="fa-solid fa-play"></i> Continue';
+                    btnEl.classList.remove('primary');
+                    btnEl.classList.add('secondary');
+                    card.classList.add('highlighted');
+                } else {
+                    statusEl.className = 'lms-card-meta course-status lms-completed';
+                    statusEl.innerHTML = '<i class="fa-solid fa-check-circle"></i> Completed';
+                    statusEl.style.color = '#16a34a';
+                    btnEl.innerHTML = '<i class="fa-solid fa-redo"></i> Review';
+                    btnEl.classList.remove('primary');
+                    btnEl.classList.add('secondary');
+                }
+            }
+        }
+
+        function updateLessonUI() {
+            document.querySelectorAll('#lmsTrainingPlayer .lms-lesson').forEach(lesson => {
+                const lessonNum = parseInt(lesson.dataset.lesson);
+                const icon = lesson.querySelector('i');
+                lesson.classList.remove('active', 'locked');
+
+                if (lessonNum < currentLesson) {
+                    if (icon) icon.className = 'fa-solid fa-circle-check';
+                    icon.style.color = 'var(--lms-success)';
+                } else if (lessonNum === currentLesson) {
+                    lesson.classList.add('active');
+                    if (icon) icon.className = 'fa-solid fa-circle-play';
+                    icon.style.color = '';
+                } else {
+                    lesson.classList.add('locked');
+                    if (icon) icon.className = 'fa-solid fa-lock';
+                    icon.style.color = '';
+                }
+            });
+        }
+
+        // Quiz Functions
+        function openLmsQuiz() {
+            if (currentLesson < 3) {
+                showLmsToast('Complete all lessons first', 'info');
+                return;
+            }
+            document.getElementById('lmsQuizModal').style.display = 'flex';
+            resetQuizOptions();
+        }
+
+        function closeLmsQuiz() {
+            document.getElementById('lmsQuizModal').style.display = 'none';
+        }
+
+        function resetQuizOptions() {
+            document.querySelectorAll('.lms-quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                opt.style.pointerEvents = '';
+            });
+        }
+
+        function selectQuizOption(el, correct) {
+            document.querySelectorAll('.lms-quiz-option').forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+
+            if (correct) {
+                el.classList.add('correct');
+                showLmsConfetti();
+                setTimeout(() => {
+                    closeLmsQuiz();
+                    document.getElementById('lmsCertBtn').disabled = false;
+                    document.getElementById('lmsCertBtn').onclick = openLmsCert;
+                    showLmsToast('🎉 Congratulations! You passed!', 'success');
+                }, 1500);
+            } else {
+                el.classList.add('incorrect');
+                showLmsToast('Try again!', 'info');
+                setTimeout(resetQuizOptions, 1200);
+            }
+        }
+
+        // Certificate Functions
+        function openLmsCert() {
+            document.getElementById('lmsCertModal').style.display = 'flex';
+            document.getElementById('lmsCertDate').textContent = new Date().toLocaleDateString('en-US', {
+                year: 'numeric', month: 'long', day: 'numeric'
+            });
+            document.getElementById('lmsCertId').textContent = 'EDLE-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 9000 + 1000);
+            showLmsConfetti();
+        }
+
+        function closeLmsCert() {
+            document.getElementById('lmsCertModal').style.display = 'none';
+        }
+
+        // Confetti Animation
+        function showLmsConfetti() {
+            const canvas = document.getElementById('lmsConfettiCanvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            canvas.style.display = 'block';
+            const ctx = canvas.getContext('2d');
+            let confetti = [];
+
+            for (let i = 0; i < 150; i++) {
+                confetti.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * -canvas.height,
+                    r: 5 + Math.random() * 10,
+                    d: 2 + Math.random() * 3,
+                    color: `hsl(${Math.random() * 360}, 80%, 60%)`,
+                    tilt: Math.random() * 10 - 5,
+                    rotation: Math.random() * 360
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                confetti.forEach(c => {
+                    ctx.save();
+                    ctx.translate(c.x, c.y);
+                    ctx.rotate(c.rotation * Math.PI / 180);
+                    ctx.fillStyle = c.color;
+                    ctx.fillRect(-c.r / 2, -c.r / 4, c.r, c.r / 2);
+                    ctx.restore();
+                });
+            }
+
+            function update() {
+                confetti.forEach(c => {
+                    c.y += c.d;
+                    c.x += Math.sin(c.rotation / 30);
+                    c.rotation += 2;
+                    if (c.y > canvas.height) c.y = -20;
+                });
+            }
+
+            let anim = setInterval(() => {
+                draw();
+                update();
+            }, 16);
+
+            setTimeout(() => {
+                clearInterval(anim);
+                canvas.style.display = 'none';
+            }, 2500);
+        }
+
+        // Keyboard Shortcuts
+        document.addEventListener('keydown', function (e) {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                const search = document.getElementById('lmsSearch');
+                if (search) search.focus();
+            }
+            if (e.key === 'Escape') {
+                closeLmsQuiz();
+                closeLmsCert();
+                closeTrainingPlayer();
             }
         });
     </script>
