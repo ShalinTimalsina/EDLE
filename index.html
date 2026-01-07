@@ -1111,6 +1111,13 @@
             background: #1e3a5f;
         }
 
+        .lms-quiz-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
         /* Quiz Modal Styles */
         .lms-quiz-progress {
             margin-top: 1rem;
@@ -1306,6 +1313,7 @@
             background: var(--lms-grey);
             color: var(--lms-muted);
             cursor: not-allowed;
+            pointer-events: none;
         }
 
         /* Quiz Modal Styles */
@@ -3304,10 +3312,12 @@
                         </li>
                     </ul>
                     <div class="lms-sidebar-actions">
-                        <button class="lms-quiz-btn" onclick="openLmsQuiz()">
+                        <button class="lms-quiz-btn" id="lmsQuizBtn" onclick="if(!this.disabled) openLmsQuiz()"
+                            disabled>
                             <i class="fa-solid fa-clipboard-question"></i> Take Assessment
                         </button>
-                        <button class="lms-cert-download-btn" id="lmsCertBtn" onclick="openLmsCert()" disabled>
+                        <button class="lms-cert-download-btn" id="lmsCertBtn" onclick="if(!this.disabled) openLmsCert()"
+                            disabled>
                             <i class="fa-solid fa-award"></i> Get Certificate
                         </button>
                     </div>
@@ -3355,10 +3365,6 @@
                             <span>To prepare students for university admission</span>
                         </button>
                     </div>
-                    <div class="lms-quiz-answer-hint">
-                        <i class="fa-solid fa-lightbulb"></i> <strong>Correct Answer: B</strong> - TVET focuses on
-                        developing practical, employable skills.
-                    </div>
                 </div>
                 <!-- Question 2 -->
                 <div class="lms-quiz-question-container" data-question="2" style="display:none;">
@@ -3383,10 +3389,6 @@
                             <span class="option-marker">D</span>
                             <span>Memorization of textbook content</span>
                         </button>
-                    </div>
-                    <div class="lms-quiz-answer-hint">
-                        <i class="fa-solid fa-lightbulb"></i> <strong>Correct Answer: C</strong> - Blended learning
-                        combines theoretical knowledge with practical application.
                     </div>
                 </div>
             </div>
@@ -3831,6 +3833,7 @@
             document.getElementById('lmsVideoProgress').style.width = '0%';
             document.getElementById('lmsVideoPlaceholder').style.display = 'flex';
             document.getElementById('lmsVideoPlaying').style.display = 'none';
+            document.getElementById('lmsQuizBtn').disabled = true;
             document.getElementById('lmsCertBtn').disabled = true;
             updateLessonUI();
             updatePlayerProgress();
@@ -3873,6 +3876,8 @@
                         videoPlaying = false;
                         placeholder.style.display = 'flex';
                         playing.style.display = 'none';
+                        // Enable the assessment button
+                        document.getElementById('lmsQuizBtn').disabled = false;
                         showLmsToast('All lessons complete! Take the assessment.', 'success');
                     }
                 }, 3000);
@@ -3989,6 +3994,11 @@
 
         // Quiz Functions
         function openLmsQuiz() {
+            // Check if all lessons are completed
+            if (completedLessons < totalLessons) {
+                showLmsToast('Please complete all lessons before taking the assessment.', 'info');
+                return;
+            }
             document.getElementById('lmsQuizModal').style.display = 'flex';
             // Update course name in quiz
             const courseName = courseTitles[currentCourseId] || 'Professional Training Course';
@@ -4054,7 +4064,7 @@
             if (isCorrect) {
                 showLmsToast('✓ Correct!', 'success');
             } else {
-                showLmsToast('✗ Incorrect - See the correct answer highlighted', 'info');
+                showLmsToast('✗ Incorrect - The correct answer is marked with ✓', 'info');
             }
         }
 
