@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENSSURE Digital Learning Ecosystem (EDLE) - Strategic Overview</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
@@ -21,16 +20,6 @@
         /* Ensure in-page nav stops below the sticky header */
         section {
             scroll-margin-top: 80px;
-        }
-
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
         }
 
         .card {
@@ -355,10 +344,6 @@
             gap: 2rem;
         }
 
-        .lms-stat-item {
-            text-align: center;
-        }
-
         .lms-stat-value {
             display: block;
             font-size: 1.5rem;
@@ -425,60 +410,6 @@
         .lms-subsection-title i {
             color: var(--lms-secondary);
             font-size: 0.85rem;
-        }
-
-        /* Pagination */
-        .lms-pagination {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-            margin-top: 1.5rem;
-            border-top: 1px solid var(--lms-border);
-        }
-
-        .lms-pagination-info {
-            font-size: 0.85rem;
-            color: var(--lms-muted);
-        }
-
-        .lms-pagination-controls {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .lms-page-btn {
-            padding: 0.5rem 0.85rem;
-            border: 1px solid var(--lms-border);
-            background: var(--lms-white);
-            color: var(--lms-text);
-            font-size: 0.85rem;
-            font-weight: 500;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .lms-page-btn:hover:not(.disabled):not(.active) {
-            border-color: var(--lms-secondary);
-            color: var(--lms-secondary);
-            background: #f0fdfa;
-        }
-
-        .lms-page-btn.active {
-            background: var(--lms-primary);
-            border-color: var(--lms-primary);
-            color: white;
-        }
-
-        .lms-page-btn.disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
         }
 
         /* Resource Cards */
@@ -1178,7 +1109,7 @@
             <p class="text-xl text-slate-600 max-w-4xl mx-auto">
                 A <strong>blended digital learning solution</strong> combining online and offline accessibility to
                 ensure inclusive training delivery.
-                <br><span class="text-base text-slate-500 mt-2 block">Solving the reliance on traditional, paper-based
+                <br><span class="text-base text-slate-500 mt-2 block">Solving the dependence on traditional, paper-based
                     resources in Nepal's TVET sector.</span>
             </p>
             <div class="mt-8 flex justify-center space-x-8">
@@ -1210,10 +1141,32 @@
         <!-- 2. PROBLEM VS SOLUTION (Strategic Pivot) -->
         <section class="bg-white rounded-xl shadow-sm p-8">
             <div class="mb-6 border-b border-gray-200 pb-4">
-                <h2 class="text-2xl font-bold text-slate-800">Pressing Issue: The Strategic Pivot</h2>
-                <p class="text-gray-600 mt-2">
-                    Moving from conventional methods to digital platforms poses challenges. Click tabs to contrast the
-                    current "Risks" with the EDLE "Solution".
+                <h2 class="text-2xl font-bold text-slate-800 mb-4">Pressing Issue</h2>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span
+                        class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-red-50 text-red-700 border border-red-200">
+                        <i class="fa-solid fa-file-alt mr-1.5 text-red-400"></i>Paper-based delivery
+                    </span>
+                    <span
+                        class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-orange-50 text-orange-700 border border-orange-200">
+                        <i class="fa-solid fa-arrow-right-arrow-left mr-1.5 text-orange-400"></i>Digital transition
+                        challenges
+                    </span>
+                    <span
+                        class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">
+                        <i class="fa-solid fa-graduation-cap mr-1.5 text-amber-400"></i>Limited digital literacy
+                    </span>
+                    <span
+                        class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200">
+                        <i class="fa-solid fa-wifi mr-1.5 text-rose-400"></i>Device & internet access gaps
+                    </span>
+                    <span
+                        class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-red-50 text-red-700 border border-red-200">
+                        <i class="fa-solid fa-exclamation-triangle mr-1.5 text-red-400"></i>Learning quality at risk
+                    </span>
+                </div>
+                <p class="text-gray-600 text-sm">
+                    Moving from conventional methods to digital platforms creates challenges and takes time.
                 </p>
             </div>
 
@@ -1487,16 +1440,22 @@
                         <i class="fa-solid fa-book-open mr-2"></i> Training Materials
                     </div>
 
-                    <!-- 2. Trainee App -->
+                    <!-- 2. Beneficiaries Side -->
                     <div id="block-device"
                         class="w-64 bg-white border-2 border-slate-200 rounded-xl p-6 text-center shadow-sm relative transition-all duration-300">
                         <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full"
                             id="device-label">
-                            TRAINEE SIDE
+                            BENEFICIARIES SIDE
                         </div>
                         <i class="fa-solid fa-mobile-screen-button text-5xl text-slate-400 mb-4 transition-colors duration-300"
                             id="icon-device"></i>
-                        <h3 class="font-bold text-slate-800 text-lg">Trainee App</h3>
+                        <h3 class="font-bold text-slate-800 text-lg">Beneficiaries Access</h3>
+                        <div class="mt-2 flex justify-center gap-2">
+                            <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded"><i
+                                    class="fa-solid fa-mobile-alt mr-1"></i>App</span>
+                            <span class="text-xs bg-teal-50 text-teal-700 px-2 py-1 rounded"><i
+                                    class="fa-solid fa-globe mr-1"></i>Portal</span>
+                        </div>
                         <div id="device-screen-content"
                             class="mt-2 text-xs text-slate-400 font-mono bg-slate-50 p-2 rounded border border-slate-100">
                             No Content Found
@@ -1543,7 +1502,8 @@
                             2</div>
                         <div class="order-1 md:w-5/12 text-center md:text-left p-4">
                             <h3 class="font-bold text-lg text-slate-800">Development</h3>
-                            <p class="text-sm text-gray-600">Develop offline-first app and cloud store infrastructure.
+                            <p class="text-sm text-gray-600">Develop offline-first app/cloud store infrastructure and
+                                online portal.
                             </p>
                         </div>
                     </div>
@@ -1567,88 +1527,24 @@
                             class="z-10 flex items-center order-1 bg-blue-600 w-8 h-8 rounded-full justify-center text-white font-bold text-sm shadow-md border-4 border-white">
                             4</div>
                         <div class="order-1 md:w-5/12 text-center md:text-left p-4">
-                            <h3 class="font-bold text-lg text-slate-800">Community Access</h3>
-                            <p class="text-sm text-gray-600">Establish community access points for syncing and support.
-                            </p>
+                            <h3 class="font-bold text-lg text-slate-800">Digital Literacy Training</h3>
+                            <p class="text-sm text-gray-600">Train trainers and learners (Bootcamps) on digital
+                                literacy.</p>
                         </div>
                     </div>
 
                     <!-- Step 5 -->
                     <div class="relative flex flex-col md:flex-row items-center md:justify-between">
                         <div class="order-1 md:w-5/12 text-center md:text-right p-4">
-                            <h3 class="font-bold text-lg text-slate-800">Digital Literacy Training</h3>
-                            <p class="text-sm text-gray-600">Train trainers and learners (Bootcamps) on digital
-                                literacy.</p>
-                        </div>
-                        <div
-                            class="z-10 flex items-center order-1 bg-blue-600 w-8 h-8 rounded-full justify-center text-white font-bold text-sm shadow-md border-4 border-white">
-                            5</div>
-                        <div class="order-1 md:w-5/12 p-4"></div>
-                    </div>
-
-                    <!-- Step 6 -->
-                    <div class="relative flex flex-col md:flex-row items-center md:justify-between">
-                        <div class="order-1 md:w-5/12 p-4"></div>
-                        <div
-                            class="z-10 flex items-center order-1 bg-green-500 w-10 h-10 rounded-full justify-center text-white font-bold text-lg shadow-md border-4 border-white">
-                            <i class="fa-solid fa-flag-checkered"></i>
-                        </div>
-                        <div class="order-1 md:w-5/12 text-center md:text-left p-4">
                             <h3 class="font-bold text-lg text-green-700">Pilot & Feedback</h3>
                             <p class="text-sm text-gray-600">Launch pilot program and gather feedback for refinement.
                             </p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. STRATEGIC CANVAS DASHBOARD (Data Viz) -->
-        <section id="strategy" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="space-y-6">
-                <!-- Customer Segments -->
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h3 class="text-lg font-bold text-slate-800 mb-4 border-b pb-2">Benefits & Value</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-center p-3 bg-blue-50 rounded-lg">
-                            <div
-                                class="w-10 h-10 rounded-full bg-blue-200 flex items-center justify-center mr-3 text-blue-700">
-                                <i class="fa-solid fa-expand"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-slate-700">Scalability</p>
-                                <p class="text-xs text-slate-500">Easily replicable across regions.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center p-3 bg-teal-50 rounded-lg">
-                            <div
-                                class="w-10 h-10 rounded-full bg-teal-200 flex items-center justify-center mr-3 text-teal-700">
-                                <i class="fa-solid fa-hand-holding-heart"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-slate-700">Inclusivity</p>
-                                <p class="text-xs text-slate-500">Reaches learners in remote areas.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Right: KPIs & Costs (Charts) -->
-            <div class="bg-white p-6 rounded-xl shadow-sm">
-                <h3 class="text-lg font-bold text-slate-800 mb-4 border-b pb-2">Investment vs. Impact</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="w-full">
-                        <h4 class="text-sm font-semibold text-center mb-2 text-gray-600">Projected Engagement</h4>
-                        <div class="chart-container">
-                            <canvas id="kpiChart"></canvas>
+                        <div
+                            class="z-10 flex items-center order-1 bg-green-500 w-10 h-10 rounded-full justify-center text-white font-bold text-lg shadow-md border-4 border-white">
+                            <i class="fa-solid fa-flag-checkered"></i>
                         </div>
-                    </div>
-                    <div class="w-full">
-                        <h4 class="text-sm font-semibold text-center mb-2 text-gray-600">Cost Efficiency</h4>
-                        <div class="chart-container">
-                            <canvas id="costChart"></canvas>
-                        </div>
+                        <div class="order-1 md:w-5/12 p-4"></div>
                     </div>
                 </div>
             </div>
@@ -1870,55 +1766,8 @@
             window.scrollTo({ top: y, behavior: 'smooth' });
         }
 
-        // --- Charts Initialization ---
+        // --- Initialization ---
         document.addEventListener('DOMContentLoaded', () => {
-
-            // KPI Chart
-            const ctxKpi = document.getElementById('kpiChart').getContext('2d');
-            new Chart(ctxKpi, {
-                type: 'bar',
-                data: {
-                    labels: ['Current Adoption', 'Target Adoption', 'Completion Rate'],
-                    datasets: [{
-                        label: 'Metrics (%)',
-                        data: [15, 85, 92],
-                        backgroundColor: ['#CBD5E0', '#2B6CB0', '#319795'],
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: { beginAtZero: true, max: 100 }
-                    },
-                    plugins: {
-                        legend: { display: false }
-                    }
-                }
-            });
-
-            // Cost Structure Chart
-            const ctxCost = document.getElementById('costChart').getContext('2d');
-            new Chart(ctxCost, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Initial CapEx (Dev/Infra)', 'Recurring OpEx (Maintenance)'],
-                    datasets: [{
-                        data: [75, 25],
-                        backgroundColor: ['#DD6B20', '#63B3ED'],
-                        hoverOffset: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } }
-                    }
-                }
-            });
-
             // Interaction: ROI Calculator
             const traineeRange = document.getElementById('traineeRange');
             const traineeValDisplay = document.getElementById('traineeVal');
